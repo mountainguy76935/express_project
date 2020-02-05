@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/results.css">
+</head>
+<body>
+    <% if (historyProp.length>0) { %>
+        <div class = "the_results">
+            <% for (let hist of historyProp) { %>
+                <p>Date: <%= hist.date %></p>
+                <p>Total Net Sales = <% if (hist.net_sales > 0) { %> <%= hist.net_sales %> <% } else {%>"you didn't sell anything today??? Super wierd"<% } %></p>
+                <p>duba = <% if (hist.bartender === 'on') { %> <%= hist.duBaStart %> <% } else { %> no bartender! <% } %></p>
+                <p>Food sales = <% if (hist.food_sales > 0) { %> <%=hist.food_sales%> <% } else { %> you didn't sell any food today??? Wierd<% } %></p>
+                <p>AT Food Sales = <% if (hist.at_sales > 0) { %> <%= hist.at_sales %> <% } else { %> No AT today? Glad you didn't have to deal with that madness.... <% } %></p>
+                <p>expo tip out= <% if (hist.expo === 'on') { %> <%= hist.expoTip %> <% } else { %> no expo! <% } %></p>
+                <p>bartender tip out= <% if (hist.bartender=== 'on') { %> <%= hist.duBa %> <% } else { %>no bartender! <% } %></p>
+                <p>bartender tip out (Afternoon Tea)= <% if (hist.bartender=== 'on') { %> <%= hist.duBaAt %> <% } else { %>no bartender! <% } %></p>
+                <p>host tip out= <% if (hist.host === 'on') { %> <%= hist.hostTip %> <% } else { %>no host!<% } %></p>
+                <p>busser tip out= <% if (hist.busser === 'on') { %> <%= hist.busserTip %> <% } else {%>no busser!<% } %></p>
+                <div class = "results">
+                    <h2><% if(hist.tipTotal > 0) { %> BOOOO you owe <%=hist.tipTotal%> to house!<% } else if (hist.tipTotal < 0) { %>You get <%= Math.abs(hist.tipTotal) %> for being an awesome server! <% } else { %>You owe NOTHING. congratulations, I guess!?!<% } %></h2>
+                    <form action="/results" method="POST">
+                        <input type="hidden" name="id" value="<%= hist._id %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <form>
+                        <input class="buttons" type="button" onclick="window.location.href = '/home'" value="Add another shift!"/>
+                     </form>
+                </div class = "results">
+                <% } %>
+        <% } else { %>
+            <p>NO HISTORY!!</p>
+            <% } %>
+    </div>
+</body>
+</html>

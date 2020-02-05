@@ -1,0 +1,14 @@
+.the_results {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+}
+
+.results {
+    border-style: solid;
+}
+
+.buttons {
+    background-color: #ee680e;
+    width: 80%;
+    color: black;
+ }

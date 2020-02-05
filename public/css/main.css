@@ -1,0 +1,55 @@
+body {
+    background-image: radial-gradient(#b62309f5, #5e195e);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  padding: 15px;
+  background-color: #ee680e;
+  justify-content: center;
+}
+
+.input.button {
+    width: 50%;
+    cursor: auto;
+}
+
+.title {
+    position: relative;
+    padding-top: 40px;
+    font-size: 200%;
+    text-align: center; 
+    color: white;
+    height: 20px; 
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+form {
+    font-size: 30px;
+    padding: 15px;
+    text-align: center;
+}
+
+.check {
+    width: 20px;
+    height: 20px;
+    padding-top: 40px;
+}
+
+.amounts {
+    font-family: 'Cinzel', serif;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    background-color: #ee680e;
+    width: 80%;
+ }
