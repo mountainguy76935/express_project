@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mainRouter = require('./routes/main_page');
 const mongoConnect = require('./util/database').mongoConnect;
 const path = require('path')
+const port = process.env.PORT || 3000
 
 const app = express();
 
@@ -16,5 +17,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(mainRouter);
 
 mongoConnect( () => {
-    app.listen(3000);
+    app.listen(port);
 })
