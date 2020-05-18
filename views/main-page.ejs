@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css">
+<%- include('includes/head.ejs')%>
 </head>
+<%- include('includes/header.ejs')%>
 <body>
+    <a href="/results" class="title past">Click to view past results!</a>
+    <a href="/cycle-results" class="title past">Click to view averages and pay period totals!</a>
     <h5 class = "title">Boulder Dushanbe Old Folks Home Tip Out Calculator 
         <br></br>
         Let's get the heck out of here, shall we?</h5>
@@ -98,7 +94,7 @@
           </label>
           <br />
           <p>Click Below!</p>
-          <div class="title">
+          <div class="title buttonz">
             <button type="submit" class = "button">Process!</button>
           </div>
         </form>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css">
+<%- include('includes/head.ejs')%>
     <link rel="stylesheet" href="/css/results.css">
 </head>
 <body>
@@ -23,7 +16,7 @@
                 <p>host tip out= <% if (hist.host === 'on') { %> <%= hist.hostTip %> <% } else { %>no host!<% } %></p>
                 <p>busser tip out= <% if (hist.busser === 'on') { %> <%= hist.busserTip %> <% } else {%>no busser!<% } %></p>
                 <div class = "results">
-                    <h2><% if(hist.tipTotal > 0) { %> BOOOO you owe <%=hist.tipTotal%> to house!<% } else if (hist.tipTotal < 0) { %>You get <%= Math.abs(hist.tipTotal) %> for being an awesome server! <% } else { %>You owe NOTHING. congratulations, I guess!?!<% } %></h2>
+                    <h2><% if(hist.tipTotal > 0) { %> BOOOO you owe $<%=hist.tipTotal%> to house!<% } else if (hist.tipTotal < 0) { %>You get $<%= Math.abs(hist.tipTotal) %> for being an awesome server! <% } else { %>You owe NOTHING. congratulations, I guess!?!<% } %></h2>
                     <form action="/results" method="POST">
                         <input type="hidden" name="id" value="<%= hist._id %>">
                         <button type="submit">Delete</button>

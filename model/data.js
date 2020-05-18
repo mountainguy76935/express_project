@@ -1,17 +1,5 @@
-// const fs = require('fs');
-const path = require('path');
 const mongodb = require('mongodb');
 const getDb = require('../util/database').getDb;
-
-// const getHistoryFromFile = cb => {
-//     fs.readFile(p, (err, fileContent) => {
-//       if (err) {
-//         cb([]);
-//       } else {
-//         cb(JSON.parse(fileContent));
-//       }
-//     });
-//   };
 
 const convertToCents = (val) => {
     val = (Math.floor(val*100))/100;
@@ -19,12 +7,10 @@ const convertToCents = (val) => {
     return val;
 }
 
-// const p = path.join(path.dirname(process.mainModule.filename), 'data', 'history.json');
-
 module.exports = class History {
     constructor(net_sales, amount_owed, food_sales, at_sales, retail_sales, busser, bartender, expo, host, id){
         this._id = id ? new mongodb.ObjectId(id) : null;
-        this.date = new Date().toString().split(' ').splice(0, 5).join(' ');
+        this.date = new Date().toString().split(' ').splice(0, 4).join(' ');
         this.net_sales = parseInt(net_sales) || 0;
         this.amount_owed = parseInt(amount_owed) || 0;
         this.food_sales = parseInt(food_sales) || 0;
@@ -54,7 +40,9 @@ module.exports = class History {
             .collection('history')
             .updateOne({ _id: this._id }, { $set: this });
         } else {
-          dbOp = db.collection('history').insertOne(this);
+          dbOp = db
+                  .collection('history')
+                  .insertOne(this);
         }
         return dbOp
           .then(result => {

@@ -28,7 +28,18 @@ body {
     height: 20px; 
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
+    z-index: 0;
   }
+
+.title.buttonz{
+    padding-bottom: 100px;
+}
+
+.title a{
+    text-decoration: none;
+    color: #e99c45;
+    height: auto;
+}
 
 form {
     font-size: 30px;
@@ -52,4 +63,14 @@ form {
 button {
     background-color: #ee680e;
     width: 80%;
+ }
+
+ .login{
+     position:absolute;  
+     z-index: 2;
+     cursor: pointer
+ }
+
+ .login:hover{
+     background-color: black
  }
